@@ -9,9 +9,10 @@ public class GameOfLife {
 
 	public static void main(String[] args) {
 		String fileName = args[0];
+		//String fileName = "square.dat";
 		//// Uncomment the test that you want to execute, and re-compile.
 		//// (Run one test at a time).
-		//// test1(fileName);
+		test1(fileName);
 		//// test2(fileName);
 		//// test3(fileName, 3);
 		//// play(fileName);
@@ -63,8 +64,20 @@ public class GameOfLife {
 		int rows = Integer.parseInt(in.readLine());
 		int cols = Integer.parseInt(in.readLine());
 		int[][] board = new int[rows + 2][cols + 2];
-		//// Replace the following statement with your code.
-		return null;
+		for(int i = 0; i < rows; i++){
+			String row =in.readLine();
+			for (int j = 0; j < row.length(); j++){
+				if (row.charAt(j) == '.'){
+					board[i + 1][j + 1] = 0;
+				} else if (row.charAt(j) == 'x'){
+					board[i + 1][j + 1] = 1;
+				}
+			}
+			for (int j = row.length(); j < cols; j++){
+				board[i + 1][j + 1] = 0;
+			}
+		}
+		return board;
 	}
 	
 	// Creates a new board from the given board, using the rules of the game.
@@ -100,7 +113,13 @@ public class GameOfLife {
 	
 	// Prints the board. Alive and dead cells are printed as 1 and 0, respectively.
     public static void print(int[][] arr) {
-		//// Write your code here.
+		for (int i = 1; i < arr.length - 1; i++){
+			System.out.print(" ");
+			for (int j = 1; j < arr[i].length - 1; j++){
+				System.out.print(arr[i][j] + " ");
+			}
+			System.out.println();
+		}
 	}
 		
     // Displays the board. Living and dead cells are represented by black and white squares, respectively.
