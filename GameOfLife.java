@@ -13,7 +13,7 @@ public class GameOfLife {
 		//// Uncomment the test that you want to execute, and re-compile.
 		//// (Run one test at a time).
 		////test1(fileName);
-		 test2(fileName);
+	    test2(fileName);
 		//// test3(fileName, 3);
 		//// play(fileName);
 	}
